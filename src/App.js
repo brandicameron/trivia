@@ -1,8 +1,10 @@
+import StartPage from './components/StartPage/StartPage';
+
 function App() {
   return (
-    <div>
-      <h1>Hey</h1>
-    </div>
+    <>
+      <StartPage />
+    </>
   );
 }
 

@@ -1,0 +1,9 @@
+.choiceButton {
+  background-color: var(--white);
+  border-radius: var(--borderRadius);
+  color: var(--primaryText);
+  text-transform: capitalize;
+  width: 100%;
+  padding: 0.75rem 0;
+  margin-bottom: 0.75rem;
+}
