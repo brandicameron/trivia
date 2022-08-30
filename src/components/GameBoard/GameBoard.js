@@ -20,7 +20,7 @@ export default function GameBoard() {
       const incorrect = data[counter].incorrect_answers;
       const correct = data[counter].correct_answer;
       const allAnswers = [...incorrect, correct];
-      const shuffledAnswers = allAnswers.sort((a, b) => 0.5 - Math.random());
+      const shuffledAnswers = allAnswers.sort(() => 0.5 - Math.random());
 
       setShuffledAnswers(shuffledAnswers);
       setCorrectAnswer(correct);
@@ -29,13 +29,19 @@ export default function GameBoard() {
 
   return (
     <>
-      <header>
+      <header className={styles.header}>
         <label htmlFor='progressBar'>
           Question {counter + 1} of {data.length}
         </label>
         <progress id='progressBar' max={data.length} value={counter + 1}></progress>
+        <p>Level: {data[counter].difficulty}</p>
       </header>
-      <h1 className={styles.question}>{decode(data[counter].question)}</h1>
+      <h1
+        className={styles.question}
+        style={{ fontSize: data[counter].question.length > 80 ? '3vh' : '4vh' }}
+      >
+        {decode(data[counter].question)}
+      </h1>
       <ul className={styles.choices}>
         {shuffledAnswers.map((answer) => (
           <li key={uuidv4()}>

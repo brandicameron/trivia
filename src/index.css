@@ -51,6 +51,11 @@ button {
   transition: all 150ms ease-in-out;
 }
 
+button:focus-visible {
+  outline: 4px solid rgb(255, 221, 0);
+  outline-offset: 3px;
+}
+
 p,
 h1,
 h2,

@@ -4,6 +4,7 @@
   color: var(--primaryText);
   text-transform: capitalize;
   width: 100%;
-  padding: 0.75rem 0;
+  padding: 0.5rem 0;
   margin-bottom: 0.75rem;
+  box-shadow: 1px 1px 15px 1px rgba(106, 71, 237, 0.9);
 }
