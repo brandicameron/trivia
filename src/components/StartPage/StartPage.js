@@ -5,7 +5,7 @@ import ActionButton from '../ActionButton/ActionButton';
 
 export default function StartPage() {
   return (
-    <main className={styles.container}>
+    <>
       <img src={Logo} alt='Quiz Logo' className={styles.logo} />
       <ul>
         <li>
@@ -19,6 +19,6 @@ export default function StartPage() {
         </li>
       </ul>
       <ActionButton label='play' />
-    </main>
+    </>
   );
 }

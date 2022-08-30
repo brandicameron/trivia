@@ -73,3 +73,14 @@ ul {
 li {
   padding: 0;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto;
+  width: 100%;
+  max-width: 400px;
+  height: 100vh;
+  padding: 2rem;
+}

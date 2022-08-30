@@ -1,14 +1,3 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: auto;
-  width: 100%;
-  max-width: 400px;
-  height: 100vh;
-  padding: 2rem;
-}
-
 .logo {
   width: 30%;
   margin: 0 auto;
