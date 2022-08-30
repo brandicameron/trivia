@@ -8,6 +8,7 @@ export function AppContextWrapper({ children }) {
   const [error, setError] = useState(null);
   const [difficulty, setDifficulty] = useState('');
   const [startGame, setStartGame] = useState(false);
+  const [counter, setCounter] = useState(0);
 
   const handleStartGame = async () => {
     try {
@@ -20,7 +21,7 @@ export function AppContextWrapper({ children }) {
       }
 
       const result = await response.json();
-      setData(result);
+      setData(result.results);
     } catch (error) {
       setError(error.message);
     } finally {
@@ -31,7 +32,17 @@ export function AppContextWrapper({ children }) {
 
   return (
     <Context.Provider
-      value={{ data, loading, error, startGame, difficulty, setDifficulty, handleStartGame }}
+      value={{
+        data,
+        loading,
+        error,
+        startGame,
+        difficulty,
+        setDifficulty,
+        handleStartGame,
+        counter,
+        setCounter,
+      }}
     >
       {children}
     </Context.Provider>
