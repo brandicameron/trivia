@@ -3,11 +3,7 @@ import Logo from '../../images/logo.svg';
 import ChoiceButton from '../ChoiceButton/ChoiceButton';
 import ActionButton from '../ActionButton/ActionButton';
 
-export default function StartPage({ setStartGame }) {
-  const handleStartGame = () => {
-    setStartGame(true);
-  };
-
+export default function StartPage({ handleStartGame }) {
   return (
     <>
       <img src={Logo} alt='Quiz Logo' className={styles.logo} />
