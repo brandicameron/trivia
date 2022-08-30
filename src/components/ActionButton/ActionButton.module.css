@@ -15,3 +15,9 @@
     0 0 20px var(--secondary);
   box-shadow: 2px 2px 20px 5px var(--secondary);
 }
+
+.actionButton:disabled {
+  opacity: 0.3;
+  filter: grayscale();
+  cursor: none;
+}

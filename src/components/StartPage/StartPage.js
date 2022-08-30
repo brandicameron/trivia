@@ -2,8 +2,12 @@ import styles from './StartPage.module.css';
 import Logo from '../../images/logo.svg';
 import ChoiceButton from '../ChoiceButton/ChoiceButton';
 import ActionButton from '../ActionButton/ActionButton';
+import { useContext } from 'react';
+import { Context } from '../../Context';
 
-export default function StartPage({ setDifficulty, handleStartGame }) {
+export default function StartPage() {
+  const { setDifficulty, handleStartGame } = useContext(Context);
+
   const handleSetDifficulty = (e) => {
     const choice = e.target.textContent;
     setDifficulty(choice);
