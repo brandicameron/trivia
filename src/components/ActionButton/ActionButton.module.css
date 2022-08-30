@@ -2,10 +2,16 @@
   background-color: transparent;
   border-radius: var(--borderRadius);
   border: 4px solid #6be4f5;
-  box-shadow: 1px 1px 20px 3px var(--secondary);
+  box-shadow: 1px 1px 15px 3px var(--secondary);
   color: var(--white);
   text-transform: capitalize;
   width: 100%;
   padding: 0.75rem 0;
   margin-bottom: 0.75rem;
+}
+
+.actionButton:hover {
+  text-shadow: 0 0 10px var(--secondary), 0 0 100px var(--secondary), 0 0 15px var(--secondary),
+    0 0 20px var(--secondary);
+  box-shadow: 2px 2px 20px 5px var(--secondary);
 }
