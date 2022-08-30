@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import { Context } from '../../Context';
 import { decode } from 'he';
+import { v4 as uuidv4 } from 'uuid';
 import ActionButton from '../ActionButton/ActionButton';
 import ChoiceButton from '../ChoiceButton/ChoiceButton';
 import styles from './GameBoard.module.css';
@@ -37,7 +38,7 @@ export default function GameBoard() {
       <h1 className={styles.question}>{decode(data[counter].question)}</h1>
       <ul className={styles.choices}>
         {shuffledAnswers.map((answer) => (
-          <li key={answer}>
+          <li key={uuidv4()}>
             <ChoiceButton label={decode(answer)} />
           </li>
         ))}
