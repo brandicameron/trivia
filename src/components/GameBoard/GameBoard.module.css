@@ -41,3 +41,48 @@ progress::-moz-progress-bar {
 .question {
   line-height: 1.2;
 }
+
+.gameOver {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  width: 95vw;
+  height: 95vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  border: 3px solid var(--white);
+  border-radius: var(--borderRadius);
+}
+
+.gameOver h1 {
+  font-size: 7vw;
+  margin-bottom: 3rem;
+  color: var(--primary);
+  filter: drop-shadow(1px 1px 10px var(--secondary));
+}
+
+.scores {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80vw;
+  max-width: 300px;
+}
+
+.divider {
+  height: 80%;
+  width: 3px;
+  background-color: var(--primary);
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
