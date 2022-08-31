@@ -1,18 +1,22 @@
 import styles from './ChoiceButton.module.css';
-import { useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Context } from '../../Context';
 
 export default function ChoiceButton({ label, clickHandler }) {
   const { difficulty } = useContext(Context);
+  const [buttonColor, setButtonColor] = useState('var(--white)');
+
+  useEffect(() => {
+    if (difficulty === label) {
+      setButtonColor('var(--primary)');
+    } else setButtonColor('var(--white)');
+  }, [difficulty]);
 
   return (
     <button
       className={styles.choiceButton}
       onClick={clickHandler}
-      style={{
-        border: `5px solid ${difficulty === label ? 'var(--primary)' : 'var(--white)'}`,
-        boxShadow: difficulty === label ? '0px 0px 10px 2px #6a47ed inset' : 'none',
-      }}
+      style={{ backgroundColor: buttonColor }}
     >
       {label}
     </button>
