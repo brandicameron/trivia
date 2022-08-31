@@ -11,7 +11,7 @@ export default function ChoiceButton({ label, clickHandler, userAnswer, correctA
     if (difficulty === label) {
       setButtonColor('var(--primary)');
     } else setButtonColor('var(--white)');
-  }, [difficulty]);
+  }, [difficulty, label]);
 
   useEffect(() => {
     if (userAnswer) {
@@ -25,7 +25,7 @@ export default function ChoiceButton({ label, clickHandler, userAnswer, correctA
         setButtonColor('var(--incorrect)');
       }
     }
-  }, [userAnswer]);
+  }, [userAnswer, label, correctAnswer]);
 
   return (
     <button

@@ -12,7 +12,7 @@ export default function ActionButton({ label, clickHandler }) {
         setDisableButton(false);
       }
     }
-  }, [difficulty]);
+  }, [difficulty, label]);
 
   useEffect(() => {
     if (label === 'next') {
@@ -22,7 +22,7 @@ export default function ActionButton({ label, clickHandler }) {
         setDisableButton(true);
       }
     }
-  }, [userAnswer]);
+  }, [userAnswer, label]);
 
   return (
     <button disabled={disableButton} className={styles.actionButton} onClick={clickHandler}>
