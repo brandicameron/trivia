@@ -11,6 +11,7 @@ export default function GameBoard() {
   const [correctAnswer, setCorrectAnswer] = useState('');
   const [numCorrect, setNumCorrect] = useState(0);
   const [numIncorrect, setNumIncorrect] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
   const { data, counter, setCounter, userAnswer, setUserAnswer } = useContext(Context);
 
   const handleSetAnswer = (e) => {
@@ -25,9 +26,16 @@ export default function GameBoard() {
   };
 
   const handleNextQuestion = () => {
-    if (userAnswer) {
-      setCounter((prev) => prev + 1);
-      setUserAnswer('');
+    console.log(data.length);
+    console.log(`Counter: ${counter}`);
+
+    if (counter + 1 < data.length) {
+      if (userAnswer) {
+        setCounter((prev) => prev + 1);
+        setUserAnswer('');
+      }
+    } else if (counter + 1 >= data.length) {
+      setGameOver(true);
     }
   };
 
@@ -42,8 +50,6 @@ export default function GameBoard() {
       setCorrectAnswer(decode(correct));
     }
   }, [counter, data]);
-
-  console.log(`Correct: ${numCorrect}  Incorrect: ${numIncorrect}`);
 
   return (
     <>
@@ -73,6 +79,23 @@ export default function GameBoard() {
         ))}
       </ul>
       <ActionButton label='next' clickHandler={handleNextQuestion} />
+
+      {gameOver && (
+        <section className={styles.gameOver}>
+          <h1>Game Over!</h1>
+          <div className={styles.scores}>
+            <div className={styles.score}>
+              <p>Correct</p>
+              <h2>{numCorrect}</h2>
+            </div>
+            <div className={styles.divider}></div>
+            <div className={styles.score}>
+              <p>Incorrect</p>
+              <h2>{numIncorrect}</h2>
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 }
