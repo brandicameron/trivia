@@ -6,9 +6,10 @@ export function AppContextWrapper({ children }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [difficulty, setDifficulty] = useState('');
   const [startGame, setStartGame] = useState(false);
+  const [difficulty, setDifficulty] = useState('');
   const [counter, setCounter] = useState(0);
+  const [userAnswer, setUserAnswer] = useState('');
 
   const handleStartGame = async () => {
     try {
@@ -42,6 +43,8 @@ export function AppContextWrapper({ children }) {
         handleStartGame,
         counter,
         setCounter,
+        userAnswer,
+        setUserAnswer,
       }}
     >
       {children}

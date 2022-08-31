@@ -9,10 +9,26 @@ import styles from './GameBoard.module.css';
 export default function GameBoard() {
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
   const [correctAnswer, setCorrectAnswer] = useState('');
-  const { data, counter, setCounter } = useContext(Context);
+  const [numCorrect, setNumCorrect] = useState(0);
+  const [numIncorrect, setNumIncorrect] = useState(0);
+  const { data, counter, setCounter, userAnswer, setUserAnswer } = useContext(Context);
+
+  const handleSetAnswer = (e) => {
+    const answer = e.target.textContent;
+    setUserAnswer(answer);
+
+    if (answer === correctAnswer) {
+      setNumCorrect((prev) => prev + 1);
+    } else {
+      setNumIncorrect((prev) => prev + 1);
+    }
+  };
 
   const handleNextQuestion = () => {
-    setCounter((prev) => prev + 1);
+    if (userAnswer) {
+      setCounter((prev) => prev + 1);
+      setUserAnswer('');
+    }
   };
 
   useEffect(() => {
@@ -20,12 +36,14 @@ export default function GameBoard() {
       const incorrect = data[counter].incorrect_answers;
       const correct = data[counter].correct_answer;
       const allAnswers = [...incorrect, correct];
-      const shuffledAnswers = allAnswers.sort(() => 0.5 - Math.random());
+      const shuffledAnswers = allAnswers.sort(() => 0.5 - Math.random()).map((ans) => decode(ans));
 
       setShuffledAnswers(shuffledAnswers);
-      setCorrectAnswer(correct);
+      setCorrectAnswer(decode(correct));
     }
   }, [counter, data]);
+
+  console.log(`Correct: ${numCorrect}  Incorrect: ${numIncorrect}`);
 
   return (
     <>
@@ -45,7 +63,12 @@ export default function GameBoard() {
       <ul className={styles.choices}>
         {shuffledAnswers.map((answer) => (
           <li key={uuidv4()}>
-            <ChoiceButton label={decode(answer)} />
+            <ChoiceButton
+              label={answer}
+              clickHandler={handleSetAnswer}
+              userAnswer={userAnswer}
+              correctAnswer={correctAnswer}
+            />
           </li>
         ))}
       </ul>
