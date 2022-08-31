@@ -56,7 +56,7 @@ export default function GameBoard() {
       </header>
       <h1
         className={styles.question}
-        style={{ fontSize: data[counter].question.length > 80 ? '3vh' : '4vh' }}
+        style={{ fontSize: data[counter].question.length > 75 ? '3vh' : '3.5vh' }}
       >
         {decode(data[counter].question)}
       </h1>

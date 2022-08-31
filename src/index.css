@@ -93,5 +93,6 @@ li {
 @media screen and (max-width: 600px) {
   .container {
     height: 90vh;
+    padding: 2rem;
   }
 }

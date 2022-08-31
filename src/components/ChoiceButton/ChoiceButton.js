@@ -32,7 +32,11 @@ export default function ChoiceButton({ label, clickHandler, userAnswer, correctA
       disabled={userAnswer ? true : false}
       className={styles.choiceButton}
       onClick={clickHandler}
-      style={{ backgroundColor: buttonColor, border: `4px solid ${buttonOutlineColor}` }}
+      style={{
+        backgroundColor: buttonColor,
+        border: `4px solid ${buttonOutlineColor}`,
+        fontSize: label.length > 20 ? '1.25rem' : '1.5rem',
+      }}
     >
       {label}
     </button>
