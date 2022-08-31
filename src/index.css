@@ -5,8 +5,8 @@
   --primary: #42dbf1;
   --secondary: #6a47ed;
   --secondaryLight: #ccc0ff;
-  --correct: #29b858;
-  --incorrect: #f6482f;
+  --correct: #09e28f;
+  --incorrect: #fd563c;
   --primaryText: #1e1e1e;
   --white: #fff;
   --borderRadius: 3rem;
@@ -88,4 +88,10 @@ li {
   max-width: 400px;
   height: 100vh;
   padding: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    height: 90vh;
+  }
 }
