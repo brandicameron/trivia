@@ -1,45 +1,21 @@
-.header {
-  width: 100%;
-  text-align: center;
-}
-
-.header label {
-  color: var(--secondaryLight);
-  font-size: 16px;
-}
-
-.header p {
-  color: var(--secondaryLight);
-  font-size: 16px;
-  text-transform: capitalize;
-}
-
-/* must have this for the webkit styles to work below */
-.header progress {
-  width: 100%;
-  border-radius: var(--borderRadius);
-}
-
-progress::-webkit-progress-bar {
-  background-color: var(--background);
-  border: 3px solid var(--primary);
-  border-radius: var(--borderRadius);
-  box-shadow: 1px 1px 15px 3px var(--secondary);
-}
-
-progress::-webkit-progress-value {
-  background-color: var(--primary);
-  transition: all 300ms linear;
-}
-
-/* for Firefox */
-progress::-moz-progress-bar {
-  background-color: var(--primary);
-  border-radius: var(--borderRadius);
-}
-
 .question {
+  /* font-size: 1.75rem; */
   line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  flex: 1;
+}
+
+.answers {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
 }
 
 .gameOver {
@@ -85,4 +61,10 @@ progress::-moz-progress-bar {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  .answers {
+    /* grid-template-columns: repeat(2, 1fr); */
+  }
 }

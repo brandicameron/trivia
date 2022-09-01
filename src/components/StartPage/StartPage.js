@@ -1,5 +1,4 @@
 import styles from './StartPage.module.css';
-import Logo from '../../images/logo.svg';
 import ChoiceButton from '../ChoiceButton/ChoiceButton';
 import ActionButton from '../ActionButton/ActionButton';
 import { useContext } from 'react';
@@ -14,8 +13,8 @@ export default function StartPage() {
   };
   return (
     <>
-      <img src={Logo} alt='Quiz Logo' className={styles.logo} />
-      <ul>
+      <h1 className={styles.logo}>Trivia!</h1>
+      <ul className={styles.choiceContainer}>
         <li>
           <ChoiceButton label='easy' clickHandler={handleSetDifficulty} />
         </li>

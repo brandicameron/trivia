@@ -1,8 +1,18 @@
 .logo {
-  width: 30%;
-  margin: 0 auto;
-  filter: drop-shadow(3px 3px 10px var(--primary));
+  font-size: 5rem;
+  transform: skewY(-10deg);
+  text-shadow: 0 0 20px #0072ff, 0 0 50px #0072ff, 0 0 200px #0a4996;
   animation: animate 5s ease-in-out infinite;
+  margin-top: 2rem;
+}
+
+.choiceContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  flex: 1;
+  gap: 0.75rem;
 }
 
 @keyframes animate {

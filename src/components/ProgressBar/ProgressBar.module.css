@@ -1,0 +1,40 @@
+.header {
+  width: 100%;
+  text-align: center;
+  margin-top: -2rem;
+}
+
+.header label {
+  color: var(--secondaryLight);
+  font-size: 16px;
+}
+
+.header p {
+  color: var(--secondaryLight);
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+/* must have this for the webkit styles to work below */
+.header progress {
+  width: 100%;
+  border-radius: var(--borderRadius);
+}
+
+progress::-webkit-progress-bar {
+  background-color: var(--background);
+  border: 3px solid var(--primary);
+  border-radius: var(--borderRadius);
+  box-shadow: 1px 1px 15px 3px var(--secondary);
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--primary);
+  transition: all 300ms linear;
+}
+
+/* for Firefox */
+progress::-moz-progress-bar {
+  background-color: var(--primary);
+  border-radius: var(--borderRadius);
+}
