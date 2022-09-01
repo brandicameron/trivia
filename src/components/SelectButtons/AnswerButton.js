@@ -1,17 +1,13 @@
-import styles from './ChoiceButton.module.css';
+import styles from './SelectButtons.module.css';
 import { useState, useEffect, useContext } from 'react';
 import { Context } from '../../Context';
+import { useDisplayAnswers } from '../../hooks/useDisplayAnswers';
 
-export default function ChoiceButton({ label, clickHandler, userAnswer, correctAnswer }) {
-  const { difficulty } = useContext(Context);
+export default function AnswerButton({ label }) {
+  const { userAnswer, setUserAnswer, setNumCorrect, setNumIncorrect } = useContext(Context);
+  const { correctAnswer } = useDisplayAnswers();
   const [buttonColor, setButtonColor] = useState('var(--white)');
   const [buttonOutlineColor, setButtonOutlineColor] = useState('none');
-
-  useEffect(() => {
-    if (difficulty === label) {
-      setButtonColor('var(--primary)');
-    } else setButtonColor('var(--white)');
-  }, [difficulty, label]);
 
   useEffect(() => {
     if (userAnswer) {
@@ -27,11 +23,22 @@ export default function ChoiceButton({ label, clickHandler, userAnswer, correctA
     }
   }, [userAnswer, label, correctAnswer]);
 
+  const handleSetAnswer = (e) => {
+    const answer = e.target.textContent;
+    setUserAnswer(answer);
+
+    if (answer === correctAnswer) {
+      setNumCorrect((prev) => prev + 1);
+    } else {
+      setNumIncorrect((prev) => prev + 1);
+    }
+  };
+
   return (
     <button
       disabled={userAnswer ? true : false}
       className={styles.choiceButton}
-      onClick={clickHandler}
+      onClick={handleSetAnswer}
       style={{
         backgroundColor: buttonColor,
         border: `4px solid ${buttonOutlineColor}`,
