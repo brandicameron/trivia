@@ -93,6 +93,8 @@ li {
 
 @media screen and (max-width: 600px) {
   .container {
-    height: -webkit-fill-available;
+    height: 100vh;
+    /* Using the webkit on the max height allows 100vh to work properly on android phones, while still applying the fill-available fix on ios. */
+    max-height: -webkit-fill-available;
   }
 }
