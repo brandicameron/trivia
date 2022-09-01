@@ -1,8 +1,8 @@
 .logo {
   font-size: 5rem;
   transform: skewY(-10deg);
-  text-shadow: 0 0 20px #0072ff, 0 0 50px #0072ff, 0 0 200px #0a4996;
-  animation: animate 5s ease-in-out infinite;
+  text-shadow: 0 0 20px var(--secondary), 0 0 50px var(--secondary), 0 0 100px var(--secondary);
+  animation: animate 4s ease-in-out infinite;
   margin-top: 2rem;
 }
 
@@ -17,12 +17,18 @@
 
 @keyframes animate {
   0% {
-    filter: drop-shadow(3px 3px 10px var(--primary));
+    filter: drop-shadow(3px 3px 5px var(--secondary));
   }
   50% {
-    filter: drop-shadow(3px 3px 10px var(--secondary));
+    filter: drop-shadow(3px 3px 5px var(--primary));
   }
   100% {
-    filter: drop-shadow(3px 3px 10px var(--primary));
+    filter: drop-shadow(3px 3px 5px var(--secondary));
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .logo {
+    animation: none;
   }
 }
