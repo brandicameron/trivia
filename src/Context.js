@@ -17,7 +17,7 @@ export function AppContextWrapper({ children }) {
   const handleStartGame = async () => {
     try {
       setLoading(true);
-      const url = `https://opentdb.com/api.php?amount=3&category=9&difficulty=${difficulty}&type=multiple`;
+      const url = `https://opentdb.com/api.php?amount=20&category=9&difficulty=${difficulty}&type=multiple`;
       const response = await fetch(url);
 
       if (!response.ok) {
