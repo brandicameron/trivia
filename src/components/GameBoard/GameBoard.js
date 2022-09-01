@@ -1,5 +1,5 @@
 import styles from './GameBoard.module.css';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { Context } from '../../Context';
 import { useDisplayAnswers } from '../../hooks/useDisplayAnswers';
 import { decode } from 'he';
@@ -22,6 +22,7 @@ export default function GameBoard() {
     gameOver,
     setGameOver,
   } = useContext(Context);
+  let numOfLettersInQuestion = data[counter].question.length;
 
   const handleSetAnswer = (e) => {
     const answer = e.target.textContent;
@@ -35,12 +36,14 @@ export default function GameBoard() {
   };
 
   const handleNextQuestion = () => {
-    if (counter + 1 < data.length) {
+    const numberOfQuestions = data.length;
+
+    if (counter + 1 < numberOfQuestions) {
       if (userAnswer) {
         setCounter((prev) => prev + 1);
         setUserAnswer('');
       }
-    } else if (counter + 1 >= data.length) {
+    } else if (counter + 1 >= numberOfQuestions) {
       setGameOver(true);
     }
   };
@@ -51,7 +54,7 @@ export default function GameBoard() {
       <section className={styles.container}>
         <h1
           className={styles.question}
-          style={{ fontSize: data[counter].question.length > 70 ? '1.5rem' : '1.75rem' }}
+          style={{ fontSize: numOfLettersInQuestion > 70 ? '1.5rem' : '1.75rem' }}
         >
           {decode(data[counter].question)}
         </h1>
