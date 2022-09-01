@@ -6,3 +6,9 @@
   width: 100%;
   padding: 0.5rem 0;
 }
+
+@media screen and (max-height: 600px) {
+  .choiceButton {
+    padding: 0.05rem 0;
+  }
+}

@@ -20,3 +20,9 @@
   filter: grayscale();
   cursor: none;
 }
+
+@media screen and (max-height: 600px) {
+  .actionButton {
+    padding: 0.25rem 0;
+  }
+}
