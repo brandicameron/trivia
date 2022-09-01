@@ -11,10 +11,17 @@ import GameOverModal from '../GameOverModal/GameOverModal';
 
 export default function GameBoard() {
   const { shuffledAnswers, correctAnswer } = useDisplayAnswers();
-  const [numCorrect, setNumCorrect] = useState(0);
-  const [numIncorrect, setNumIncorrect] = useState(0);
-  const [gameOver, setGameOver] = useState(false);
-  const { data, counter, setCounter, userAnswer, setUserAnswer } = useContext(Context);
+  const {
+    data,
+    counter,
+    setCounter,
+    userAnswer,
+    setUserAnswer,
+    setNumCorrect,
+    setNumIncorrect,
+    gameOver,
+    setGameOver,
+  } = useContext(Context);
 
   const handleSetAnswer = (e) => {
     const answer = e.target.textContent;
@@ -63,7 +70,7 @@ export default function GameBoard() {
       </section>
       {!gameOver && <ActionButton label='next' clickHandler={handleNextQuestion} />}
 
-      {gameOver && <GameOverModal numCorrect={numCorrect} numIncorrect={numIncorrect} />}
+      {gameOver && <GameOverModal />}
     </>
   );
 }

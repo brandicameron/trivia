@@ -1,6 +1,10 @@
 import styles from './GameOverModal.module.css';
+import { useContext } from 'react';
+import { Context } from '../../Context';
+import ActionButton from '../ActionButton/ActionButton';
 
-export default function GameOverModal({ numCorrect, numIncorrect }) {
+export default function GameOverModal() {
+  const { numCorrect, numIncorrect, handlePlayAgain } = useContext(Context);
   return (
     <section className={styles.gameOver}>
       <h1>Game Over!</h1>
@@ -15,6 +19,7 @@ export default function GameOverModal({ numCorrect, numIncorrect }) {
           <h2>{numIncorrect}</h2>
         </div>
       </div>
+      <ActionButton label='play again' clickHandler={handlePlayAgain} />
     </section>
   );
 }

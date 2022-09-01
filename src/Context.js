@@ -10,6 +10,9 @@ export function AppContextWrapper({ children }) {
   const [difficulty, setDifficulty] = useState('');
   const [counter, setCounter] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
+  const [numCorrect, setNumCorrect] = useState(0);
+  const [numIncorrect, setNumIncorrect] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
 
   const handleStartGame = async () => {
     try {
@@ -31,6 +34,17 @@ export function AppContextWrapper({ children }) {
     }
   };
 
+  const handlePlayAgain = () => {
+    setData([]);
+    setStartGame(false);
+    setDifficulty('');
+    setCounter(0);
+    setUserAnswer('');
+    setNumCorrect(0);
+    setNumIncorrect(0);
+    setGameOver(false);
+  };
+
   return (
     <Context.Provider
       value={{
@@ -40,11 +54,18 @@ export function AppContextWrapper({ children }) {
         startGame,
         difficulty,
         setDifficulty,
-        handleStartGame,
         counter,
         setCounter,
         userAnswer,
         setUserAnswer,
+        numCorrect,
+        setNumCorrect,
+        numIncorrect,
+        setNumIncorrect,
+        gameOver,
+        setGameOver,
+        handleStartGame,
+        handlePlayAgain,
       }}
     >
       {children}

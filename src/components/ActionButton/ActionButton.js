@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import { Context } from '../../Context';
 
 export default function ActionButton({ label, clickHandler }) {
-  const { difficulty, loading, userAnswer } = useContext(Context);
+  const { difficulty, loading, userAnswer, gameOver } = useContext(Context);
   const [disableButton, setDisableButton] = useState(true);
 
   useEffect(() => {
@@ -23,6 +23,12 @@ export default function ActionButton({ label, clickHandler }) {
       }
     }
   }, [userAnswer, label]);
+
+  useEffect(() => {
+    if (gameOver) {
+      setDisableButton(false);
+    }
+  }, [gameOver]);
 
   return (
     <button disabled={disableButton} className={styles.actionButton} onClick={clickHandler}>

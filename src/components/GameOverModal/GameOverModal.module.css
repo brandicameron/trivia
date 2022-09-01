@@ -25,11 +25,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-flow: row wrap;
   width: 85vw;
   max-width: 350px;
   padding: 2rem 1.75rem;
   border: 3px solid var(--white);
   border-radius: var(--borderRadius);
+  margin-bottom: 3rem;
 }
 
 .divider {
@@ -42,6 +44,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.gameOver button {
+  max-width: 310px;
 }
 
 @media screen and (max-width: 600px) {
