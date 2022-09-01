@@ -67,10 +67,6 @@ h5 {
   overflow-wrap: break-word;
 }
 
-img {
-  object-fit: cover;
-}
-
 ul {
   list-style: none;
   padding: 0;

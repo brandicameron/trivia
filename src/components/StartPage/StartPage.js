@@ -4,6 +4,7 @@ import { Context } from '../../Context';
 import { v4 as uuidv4 } from 'uuid';
 import ActionButton from '../ActionButton/ActionButton';
 import DifficultyButton from '../SelectButtons/DifficultyButton';
+import Logo from '../../images/trivia-logo.png';
 
 export default function StartPage() {
   const { handleStartGame } = useContext(Context);
@@ -11,7 +12,8 @@ export default function StartPage() {
 
   return (
     <>
-      <h1 className={styles.logo}>Trivia!</h1>
+      <img className={styles.logo} src={Logo} alt='Trivia game logo' width={500} height={249} />
+
       <ul role='list' className={styles.choiceContainer}>
         {difficultySettings.map((setting) => (
           <li key={uuidv4()}>

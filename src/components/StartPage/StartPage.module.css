@@ -1,9 +1,12 @@
 .logo {
-  font-size: 5rem;
-  transform: skewY(-10deg);
-  text-shadow: 0 0 20px var(--secondary), 0 0 50px var(--secondary), 0 0 100px var(--secondary);
-  animation: animate 4s ease-in-out infinite;
   margin-top: 2rem;
+  width: 90vw;
+  max-width: 500px;
+  object-fit: contain;
+  filter: drop-shadow(3px 3px 100px var(--secondary));
+  transform: rotate(10deg) scale(0);
+  animation: grow 150ms ease-in-out forwards;
+  animation-delay: 200ms;
 }
 
 .choiceContainer {
@@ -15,15 +18,9 @@
   gap: 0.75rem;
 }
 
-@keyframes animate {
-  0% {
-    filter: drop-shadow(3px 3px 5px var(--secondary));
-  }
-  50% {
-    filter: drop-shadow(3px 3px 5px var(--primary));
-  }
+@keyframes grow {
   100% {
-    filter: drop-shadow(3px 3px 5px var(--secondary));
+    transform: rotate(10deg) scale(1);
   }
 }
 
