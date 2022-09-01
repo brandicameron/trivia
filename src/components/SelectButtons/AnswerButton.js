@@ -37,7 +37,7 @@ export default function AnswerButton({ label }) {
   return (
     <button
       disabled={userAnswer ? true : false}
-      className={styles.choiceButton}
+      className={styles.selectButton}
       onClick={handleSetAnswer}
       style={{
         backgroundColor: buttonColor,

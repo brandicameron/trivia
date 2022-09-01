@@ -21,7 +21,7 @@ export default function DifficultyButton({ label }) {
   return (
     <button
       disabled={userAnswer ? true : false}
-      className={styles.choiceButton}
+      className={styles.selectButton}
       onClick={handleSetDifficulty}
       style={{
         backgroundColor: buttonColor,

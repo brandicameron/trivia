@@ -1,5 +1,4 @@
-.choiceButton {
-  background-color: var(--white);
+.selectButton {
   border-radius: var(--borderRadius);
   color: var(--primaryText);
   text-transform: capitalize;
@@ -8,7 +7,7 @@
 }
 
 @media screen and (max-height: 600px) {
-  .choiceButton {
+  .selectButton {
     padding: 0.05rem 0;
   }
 }
