@@ -1,11 +1,13 @@
 import styles from './StartPage.module.css';
-import ChoiceButton from '../ChoiceButton/ChoiceButton';
-import ActionButton from '../ActionButton/ActionButton';
 import { useContext } from 'react';
 import { Context } from '../../Context';
+import { v4 as uuidv4 } from 'uuid';
+import ChoiceButton from '../ChoiceButton/ChoiceButton';
+import ActionButton from '../ActionButton/ActionButton';
 
 export default function StartPage() {
   const { setDifficulty, handleStartGame } = useContext(Context);
+  const difficultySettings = ['easy', 'medium', 'hard'];
 
   const handleSetDifficulty = (e) => {
     const choice = e.target.textContent;
@@ -15,15 +17,11 @@ export default function StartPage() {
     <>
       <h1 className={styles.logo}>Trivia!</h1>
       <ul className={styles.choiceContainer}>
-        <li>
-          <ChoiceButton label='easy' clickHandler={handleSetDifficulty} />
-        </li>
-        <li>
-          <ChoiceButton label='medium' clickHandler={handleSetDifficulty} />
-        </li>
-        <li>
-          <ChoiceButton label='hard' clickHandler={handleSetDifficulty} />
-        </li>
+        {difficultySettings.map((setting) => (
+          <li key={uuidv4()}>
+            <ChoiceButton label={setting} clickHandler={handleSetDifficulty} />
+          </li>
+        ))}
       </ul>
       <ActionButton label='play' clickHandler={handleStartGame} />
     </>
