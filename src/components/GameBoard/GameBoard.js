@@ -1,15 +1,16 @@
 import styles from './GameBoard.module.css';
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useState } from 'react';
 import { Context } from '../../Context';
+import { useDisplayAnswers } from '../../hooks/useDisplayAnswers';
 import { decode } from 'he';
 import { v4 as uuidv4 } from 'uuid';
 import ActionButton from '../ActionButton/ActionButton';
 import ChoiceButton from '../ChoiceButton/ChoiceButton';
 import ProgressBar from '../ProgressBar/ProgressBar';
+import GameOverModal from '../GameOverModal/GameOverModal';
 
 export default function GameBoard() {
-  const [shuffledAnswers, setShuffledAnswers] = useState([]);
-  const [correctAnswer, setCorrectAnswer] = useState('');
+  const { shuffledAnswers, correctAnswer } = useDisplayAnswers();
   const [numCorrect, setNumCorrect] = useState(0);
   const [numIncorrect, setNumIncorrect] = useState(0);
   const [gameOver, setGameOver] = useState(false);
@@ -27,9 +28,6 @@ export default function GameBoard() {
   };
 
   const handleNextQuestion = () => {
-    console.log(data.length);
-    console.log(`Counter: ${counter}`);
-
     if (counter + 1 < data.length) {
       if (userAnswer) {
         setCounter((prev) => prev + 1);
@@ -40,21 +38,9 @@ export default function GameBoard() {
     }
   };
 
-  useEffect(() => {
-    if (data) {
-      const incorrect = data[counter].incorrect_answers;
-      const correct = data[counter].correct_answer;
-      const allAnswers = [...incorrect, correct];
-      const shuffledAnswers = allAnswers.sort(() => 0.5 - Math.random()).map((ans) => decode(ans));
-
-      setShuffledAnswers(shuffledAnswers);
-      setCorrectAnswer(decode(correct));
-    }
-  }, [counter, data]);
-
   return (
     <>
-      <ProgressBar />
+      {!gameOver && <ProgressBar />}
       <section className={styles.container}>
         <h1
           className={styles.question}
@@ -75,24 +61,9 @@ export default function GameBoard() {
           ))}
         </ul>
       </section>
-      <ActionButton label='next' clickHandler={handleNextQuestion} />
+      {!gameOver && <ActionButton label='next' clickHandler={handleNextQuestion} />}
 
-      {gameOver && (
-        <section className={styles.gameOver}>
-          <h1>Game Over!</h1>
-          <div className={styles.scores}>
-            <div className={styles.score}>
-              <p>Correct</p>
-              <h2>{numCorrect}</h2>
-            </div>
-            <div className={styles.divider}></div>
-            <div className={styles.score}>
-              <p>Incorrect</p>
-              <h2>{numIncorrect}</h2>
-            </div>
-          </div>
-        </section>
-      )}
+      {gameOver && <GameOverModal numCorrect={numCorrect} numIncorrect={numIncorrect} />}
     </>
   );
 }
