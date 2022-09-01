@@ -9,14 +9,14 @@ export default function GameOverModal() {
     <section className={styles.gameOver}>
       <h1>Game Over!</h1>
       <div className={styles.scores}>
-        <div className={styles.score}>
-          <p>Correct</p>
-          <h2>{numCorrect}</h2>
+        <div>
+          <h2>Correct</h2>
+          <output>{numCorrect}</output>
         </div>
         <div className={styles.divider}></div>
-        <div className={styles.score}>
-          <p>Incorrect</p>
-          <h2>{numIncorrect}</h2>
+        <div>
+          <h2>Incorrect</h2>
+          <output>{numIncorrect}</output>
         </div>
       </div>
       <ActionButton label='play again' clickHandler={handlePlayAgain} />
