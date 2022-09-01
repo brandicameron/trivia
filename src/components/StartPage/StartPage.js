@@ -12,7 +12,7 @@ export default function StartPage() {
   return (
     <>
       <h1 className={styles.logo}>Trivia!</h1>
-      <ul className={styles.choiceContainer}>
+      <ul role='list' className={styles.choiceContainer}>
         {difficultySettings.map((setting) => (
           <li key={uuidv4()}>
             <DifficultyButton label={setting} />

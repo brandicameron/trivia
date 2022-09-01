@@ -26,7 +26,7 @@ export default function GameBoard() {
         >
           {decode(data[counter].question)}
         </h1>
-        <ul className={styles.answers}>
+        <ul role='list' className={styles.answers}>
           {shuffledAnswers.map((answer) => (
             <li key={uuidv4()}>
               <AnswerButton label={answer} />
