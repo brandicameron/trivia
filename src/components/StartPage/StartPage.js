@@ -4,7 +4,7 @@ import { Context } from '../../Context';
 import { v4 as uuidv4 } from 'uuid';
 import ActionButton from '../ActionButton/ActionButton';
 import DifficultyButton from '../SelectButtons/DifficultyButton';
-import Logo from '../../images/trivia-logo.png';
+import Logo from '../../images/trivia.png';
 
 export default function StartPage() {
   const { handleStartGame } = useContext(Context);

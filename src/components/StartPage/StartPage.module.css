@@ -4,7 +4,7 @@
   max-width: 500px;
   object-fit: contain;
   filter: drop-shadow(3px 3px 100px var(--secondary));
-  transform: rotate(10deg) scale(0);
+  transform: scale(0);
   animation: grow 150ms ease-in-out forwards;
   animation-delay: 200ms;
 }
@@ -20,7 +20,7 @@
 
 @keyframes grow {
   100% {
-    transform: rotate(10deg) scale(1);
+    transform: scale(1);
   }
 }
 
