@@ -58,4 +58,16 @@
   .gameOver {
     height: calc(-webkit-fill-available - 20vh);
   }
+
+  .gameOver h2 {
+    font-size: 1.25rem;
+  }
+
+  .gameOver output {
+    font-size: 2rem;
+  }
+
+  .gameOver button {
+    max-width: 275px;
+  }
 }

@@ -1,5 +1,5 @@
 .logo {
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   width: 90vw;
   max-width: 500px;
   object-fit: contain;
@@ -16,6 +16,7 @@
   width: 100%;
   flex: 1;
   gap: 0.75rem;
+  margin-bottom: 2rem;
 }
 
 @keyframes grow {

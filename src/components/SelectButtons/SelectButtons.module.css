@@ -3,11 +3,12 @@
   color: var(--primaryText);
   text-transform: capitalize;
   width: 100%;
-  padding: 0.5rem 0;
+  padding: 1rem 0;
+  line-height: 1.2rem;
 }
 
 @media screen and (max-height: 600px) {
   .selectButton {
-    padding: 0.05rem 0;
+    padding: 0.6rem 0;
   }
 }

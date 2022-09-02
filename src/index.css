@@ -94,3 +94,8 @@ li {
     max-height: -webkit-fill-available;
   }
 }
+@media screen and (max-width: 350px) {
+  .container {
+    padding: 2rem 0.5rem;
+  }
+}
